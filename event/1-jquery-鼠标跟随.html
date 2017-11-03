@@ -75,7 +75,6 @@
 					e.target = e.target || e.srcElement;
 					var left = e.clientX-$boxOffset.left;
 					var top = e.clientY-$boxOffset.top;
-					// $mark.toggle();//当前显示就隐藏， 当前隐藏就显示
 					//jquery动画：show hide  slideDown下滑展开  slideUp  slideToggle   fadeOut  fadeIn透明度渐变显示  fadeToggle  animate....
 
 					$mark.stop().show(500).css({left:left,top:top}).find("img").attr("src",e.target.getAttribute("bigImg"));  //动画效果显示
