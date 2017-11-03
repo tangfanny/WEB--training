@@ -75,7 +75,7 @@
 					e.target = e.target || e.srcElement;
 					var left = e.clientX-$boxOffset.left;
 					var top = e.clientY-$boxOffset.top;
-					//jquery动画：show hide  slideDown下滑展开  slideUp  slideToggle   fadeOut  fadeIn透明度渐变显示
+					//jquery动画：show hide  slideDown下滑展开  slideUp  slideToggle
 
 					$mark.stop().show(500).css({left:left,top:top}).find("img").attr("src",e.target.getAttribute("bigImg"));  //动画效果显示
 			}).bind("mousemove",function(e){
