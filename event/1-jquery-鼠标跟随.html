@@ -59,7 +59,6 @@
 			var $box = $("#box"),$mark = $("#mark");
 			//offset()获取当前元素距离的body的偏移{top:xxx,left:xxx}
 			var $boxOffset = $box.offset();
-			// $box.children("img").mouseover(function(){})
 			$box.children("img").bind("mouseover",function(e){
 					e = e || window.event;
 					e.target = e.target || e.srcElement;
