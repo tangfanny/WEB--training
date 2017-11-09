@@ -70,7 +70,8 @@
 	//设置mark盒子的位置信息
 	function setPositon(e){
 		//正常情况下，获取的top和left
-		var tempL = 0,tempT = 0;
+		var tempL = 0,
+			tempT = 0;
 		var top = e.clientY - box.offsetTop - (mark.offsetHeight/2),
 			left = e.clientX - box.offsetLeft - (mark.offsetWidth/2);
 		//需要做边界判断
