@@ -72,7 +72,7 @@
 
 		var box = document.getElementById("box");
 
-		//onmouseenter和onmouseover都是鼠标划上去的行为，但是onmouseenter浏览器默认阻止了它的冒泡传播（mark的onmouseentr触发不会传播到box）而onmouseover是存在冒泡传播
+		//onmouseenter和onmouseover都是鼠标划上去的行为，但是onmouseenter浏览器默认阻止了它的冒泡传播（mark的onmouseentr触发不会传播到box）而onmouseover是存在冒泡
 		box.onmouseenter = function(e)
 			e = e ||window.event;
 			var mark = document.createElement("div");
