@@ -71,14 +71,14 @@
 /****************************************方法2************************************/
 
 		var box = document.getElementById("box");
-		box.onmouseenter = function(e)
+		box.onmouseenter = function(e){
 			e = e ||window.event;
 			var mark = document.createElement("div");
 			mark.id = "mark";
 			this.appendChild(mark);
 			
 			mark.style.left = e.clientX - this.offsetLeft + 5 + "px";
-			mark.style.top = e.clientY - this.offsetTop + 5 + "px"
+			mark.style.top = e.clientY - this.offsetTop + 5 + "px";
 		
 		};
 
