@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>事件委托-百度搜索框</title>
+</head>
+<style type="text/css">
+		body,div{
+			padding: 0;
+			margin: 0;
+			font-size: 14px;
+		}
+
+		input{
+			display: block;
+			outline: none;
+		}
+
+		a{
+			display: block;
+			text-decoration: none;
+			color: #000;
+		}
+
+		a:hover,a:active,a:target{
+			text-decoration: none;
+			color: #000;
+		}
+		ul,li{
+			list-style: none;
+		}
+		html，body{
+			width: 100%;
+			height: 100%;
+			border-top: 1px solid  transparent;
+		}
+		.box{
+			position: absolute;
+			width: 500px;
+			top: 20px;
+			left: 50%;
+			margin-left: -250px;
+		}
+
+		.box input{
+			padding: 0 10px;
+			width: 300px;
+			height: 35px;
+			border: 1px solid #008000;
+		}
+		.box ul{
+			display: none;
+			position: relative;
+			top: -15px;
+			border: 1px solid #008000;
+		}
+		.box ul li,.box ul li a{
+			height: 30px;
+			line-height: 30px;
+			
+		}
+		.box ul li a{
+			padding:0;
+		}
+		.box ul li a:hover{
+			background: #ccc;
+		}
+</style>
+<body>
+	<div class="box" >
+		<input type="text" id="searchInp">		
+		<ul id="searchList">
+			<li><a href="javascript:;">咸鱼</a></li>
+			<li><a href="javascript:;">咸鱼出租</a></li>
+			<li><a href="javascript:;">咸鱼二手卖货</a></li>
+			<li><a href="javascript:;">咸鱼糖的平房</a></li>
+		</ul>
+	</div>
+<script type="text/javascript">
+	//显示：（1）文本框获取焦点并且文本框有内容时
+	//   （2）文本框中操作内容（新输入/删除），如果内容没有清空，就显示，否则就隐藏
+
+	//隐藏：（1）点击页面中其余的位置(除了文本框和searchlist中的没一行)都隐藏
+		//(2)点击searchlist中的列表隐藏，但是还要把列表中内容放到文本框
+
+	var searchInp = document.getElementById("searchInp"),searchList = document.getElementById("searchList");
+
+	//不管是获取焦点(onfocus)还是在里边编辑内容（onkeyup）都是有内容显示，没内容隐藏
+	searchInp.onfocus = searchInp.onkeyup = function(e){
+		var val = this.value.replace(/(^ +| +$)/g, ""); //获取文本框中的内容并且去除它的首尾空格
+		searchList.style.display = val.length > 0 ? "block" : "none";
+
+	};
+
+	document.body.onclick = function(e){
+		e = e || window.event;
+		e.target = e.target || e.srcElement;
+
+		//如果事件源是searchList下的a，让searchList隐藏，并且把当前点击这个a中的内容放到文本框中
+		if(e.target.tagName.toLowerCase()==="a" && e.target.parentNode.parentNode.id==="searchList"){
+			searchList.style.display = "none";
+			searchList.value = e.target.innerHTML;
+			return;
+		}
+
+		//如果事件源是文本框还需要单独处理
+		// if(e.target.id === "searchInp"){
+		// 	return;
+		// }
+		searchList.style.display = "none";
+	}
+</script>
+</body>
+</html>
